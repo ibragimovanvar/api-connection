@@ -26,7 +26,7 @@ public class DocumentService {
         XWPFParagraph descParagraph = document.createParagraph();
         XWPFRun descParagraphRun = descParagraph.createRun();
         descParagraphRun.setText(shablon.getDesc());
-        descParagraphRun.setFontSize(15);
+        descParagraphRun.setFontSize(12);
         descParagraphRun.setBold(true);
         descParagraphRun.addBreak();
 
@@ -45,15 +45,20 @@ public class DocumentService {
             row.getCell(3).setText(Double.toString(student.getResult()));
         }
 
+        XWPFParagraph emtyParagraph = document.createParagraph();
+        XWPFRun emtyParagraphRun = emtyParagraph.createRun();
+        emtyParagraphRun.addBreak();
+
         XWPFParagraph authorParagraph = document.createParagraph();
         XWPFRun authorParagraphRun = authorParagraph.createRun();
         authorParagraphRun.setText(shablon.getCreatedBy());
-        authorParagraphRun.setFontSize(16);
+        authorParagraphRun.setFontSize(12);
         authorParagraphRun.setBold(true);
         authorParagraphRun.addBreak();
+//        authorParagraphRun.addCarriageReturn();
 
         LocalDateTime hozirgiVaqt = LocalDateTime.now();
-        String formatlanganVaqt = hozirgiVaqt.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
+        String formatlanganVaqt = hozirgiVaqt.format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm"));
 
         XWPFParagraph dateParagraph = document.createParagraph();
         dateParagraph.createRun().setText("Yaratilgan vaqt: " + formatlanganVaqt);
