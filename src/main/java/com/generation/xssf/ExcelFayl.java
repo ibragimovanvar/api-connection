@@ -1,9 +1,6 @@
 package com.generation.xssf;
 
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileNotFoundException;
@@ -17,9 +14,19 @@ public class ExcelFayl {
 
         Sheet sheet1 = workbook.createSheet("D28 Guruh");
 
+        Font italicBold16SizeArialFont = workbook.createFont();
+        italicBold16SizeArialFont.setBold(true);
+        italicBold16SizeArialFont.setItalic(true);
+        italicBold16SizeArialFont.setFontHeight((short) 16);
+        italicBold16SizeArialFont.setFontName("Arial");
+        CellStyle cellStyle = workbook.createCellStyle();
+        cellStyle.setFont(italicBold16SizeArialFont);
+        cellStyle.setAlignment(HorizontalAlignment.CENTER);
+
         Row sheet1Row1 = sheet1.createRow(0);
         Cell sheet1Row1Cell1 = sheet1Row1.createCell(0);
         sheet1Row1Cell1.setCellValue("Ism Familiya");
+        sheet1Row1Cell1.setCellStyle(cellStyle);
         Cell sheet1Row1Cell2 = sheet1Row1.createCell(1);
         sheet1Row1Cell2.setCellValue("Yosh");
         Cell sheet1Row1Cell3 = sheet1Row1.createCell(2);
