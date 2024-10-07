@@ -28,7 +28,7 @@ public class WordExample {
 //        secondHeaderParagContent.setBold(true);
         secondHeaderParagContent.addBreak();
 
-        XWPFTable table = document.createTable(10, 4);
+        XWPFTable table = document.createTable(10, 5);
         XWPFTableRow row1 = table.getRow(0);
         XWPFTableCell cell1 = row1.getCell(0);
         cell1.setText("Ism Familiya");
